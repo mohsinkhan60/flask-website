@@ -2,19 +2,21 @@ from app import app, db
 from flask import request, jsonify
 from models import Friend
 
-#Get all friends
+# CRUD
+# Get all friends
 @app.route('/api/friends', methods=['GET'])
 def get_friends():
     friends = Friend.query.all()
     result = [friend.to_json() for friend in friends]
     return jsonify(result)
 
-#create a new friend
+# create a new friend
 @app.route('/api/friends', methods=['POST'])
 def create_friend():
     try:
         data = request.json
 
+        # Check if all required fields are present
         required_fields = ["name", "role","gender", "description"]
         for field in required_fields:
             if field not in data:
@@ -26,7 +28,7 @@ def create_friend():
         gender = data.get('gender')
 
 
-        #For Gender
+        # For Gender
         if gender == 'male':
             img_url = f"https://avatar.iran.liara.run/public/boy?username={name}"
         elif gender == 'female':
