@@ -17,11 +17,11 @@ const Navbar = () => {
             display={{ base: "none", sm: "flex" }}
           >
             <img src="/react.png" width={50} height={50} alt="logo" />
-            <Text fontSize={"40px"} color={"white"}>
+            <Text fontSize={"40px"}>
               +
             </Text>
             <img src="/python.png" width={50} height={40} alt="logo" />
-            <Text fontSize={"40px"} color={"white"}>
+            <Text fontSize={"40px"}>
               {" "}
               =
             </Text>
