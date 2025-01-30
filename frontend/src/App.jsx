@@ -6,9 +6,7 @@ const App = () => {
     <Stack minH={"100vh"}>
       <Navbar />
 
-      <Container minW={"1200px"} my={4}>
-
-      </Container>
+      <Container minW={"1200px"} my={4}></Container>
     </Stack>
   );
 };
