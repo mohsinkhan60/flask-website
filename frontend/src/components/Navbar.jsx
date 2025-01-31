@@ -2,6 +2,7 @@ import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
 import { IoMoonOutline } from "react-icons/io5";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
+import CreateUserModal from "./CreateUserModal";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -40,10 +41,12 @@ const Navbar = () => {
             <Button onClick={toggleColorMode}>
               {colorMode === "light" ? <IoMoonOutline /> : <IoSunnyOutline size={20} />}
             </Button>
-            {/* <CreateUserModal setUsers={setUsers} /> */}
+            <CreateUserModal />
           </Flex>
         </Flex>
+        
       </Box>
+
     </Container>
   );
 };
