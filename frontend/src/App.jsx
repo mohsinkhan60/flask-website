@@ -1,5 +1,6 @@
 import { Container, Stack, Text } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
+import UserGrid from "./components/UserGrid";
 
 const App = () => {
   return (
@@ -7,19 +8,20 @@ const App = () => {
       <Navbar />
 
       <Container minW={"1200px"} my={4}>
-      <Text
-					fontSize={{ base: "3xl", md: "50" }}
-					fontWeight={"bold"}
-					letterSpacing={"2px"}
-					textTransform={"uppercase"}
-					textAlign={"center"}
-					mb={8}
-				>
-					<Text as={"span"} bgGradient={"linear(to-r, cyan.400, blue.500)"}>
-						My Besties
-					</Text>
-					🚀
-				</Text>
+        <Text
+          fontSize={{ base: "3xl", md: "50" }}
+          fontWeight={"bold"}
+          letterSpacing={"2px"}
+          textTransform={"uppercase"}
+          textAlign={"center"}
+          mb={8}
+        >
+          <Text as={"span"} bgGradient={"linear(to-r, cyan.400, blue.500)"}>
+            My Besties
+          </Text>
+          🚀
+        </Text>
+        <UserGrid />
       </Container>
     </Stack>
   );
