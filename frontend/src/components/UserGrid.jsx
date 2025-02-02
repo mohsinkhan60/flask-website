@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { Flex, Grid, Spinner } from "@chakra-ui/react";
+import { Flex, Grid, Spinner, Text } from "@chakra-ui/react";
 import UserCard from "./UserCard";
 import { useEffect, useState } from "react";
 
 const UserGrid = ({ users, setUsers }) => {
-  const { loading, isLoading } = useState(true);
+  // const { loading, isLoading } = useState(true);
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -19,7 +19,7 @@ const UserGrid = ({ users, setUsers }) => {
       } catch (error) {
         console.error(error);
       } finally {
-        isLoading(false);
+        // isLoading(false);
       }
     };
     getUsers();
@@ -37,11 +37,21 @@ const UserGrid = ({ users, setUsers }) => {
           <UserCard key={user.id} user={user} />
         ))}
       </Grid>
-      {loading && (
+      {/* {loading && (
         <Flex justifyContent={"center"}>
           <Spinner size={"xl"} />
         </Flex>
-      )}
+      )} */}
+      {users.length === 0 && (
+				<Flex justifyContent={"center"}>
+					<Text fontSize={"xl"}>
+						<Text as={"span"} fontSize={"2xl"} fontWeight={"bold"} mr={2}>
+							Poor you! 🥺
+						</Text>
+						No friends found.
+					</Text>
+				</Flex>
+			)}
     </>
   );
 };

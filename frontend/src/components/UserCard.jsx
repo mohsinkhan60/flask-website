@@ -10,6 +10,7 @@ const UserCard = ({ user }) => {
           <Flex flex={"1"} gap={"4"} alignItems={"center"}>
             {/* <Avatar src={user?.imgUrl} /> */}
 
+
             <Box>
               <Heading size="sm">{user?.name}</Heading>
               <Text>{user?.role}</Text>

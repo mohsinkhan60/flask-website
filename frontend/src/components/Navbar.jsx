@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
 import { IoMoonOutline } from "react-icons/io5";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
 import CreateUserModal from "./CreateUserModal";
 
-const Navbar = () => {
+const Navbar = ({setUsers}) => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Container maxW={"900px"}>
@@ -41,7 +42,7 @@ const Navbar = () => {
             <Button onClick={toggleColorMode}>
               {colorMode === "light" ? <IoMoonOutline /> : <IoSunnyOutline size={20} />}
             </Button>
-            <CreateUserModal />
+            <CreateUserModal setUsers={setUsers} />
           </Flex>
         </Flex>
         
