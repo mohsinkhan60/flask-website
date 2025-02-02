@@ -1,21 +1,16 @@
-import React from "react";
-// import { Radio } from "@/components/ui/radio";
-import { CiEdit } from "react-icons/ci";
 import {
-  Button,
-  HStack,
-  IconButton,
-  Input,
-  PopoverArrow,
-  PopoverBody,
-  PopoverContent,
-  PopoverRoot,
-  PopoverTitle,
-  PopoverTrigger,
-  Textarea,
+   Button,
+   Input,
+   PopoverArrow,
+   PopoverBody,
+   PopoverContent,
+   PopoverRoot,
+   PopoverTitle,
+   PopoverTrigger,
+   Textarea
 } from "@chakra-ui/react";
-import { BiAddToQueue } from "react-icons/bi";
-import { Radio, RadioGroup } from "../components/ui/radio";
+import React from "react";
+import { CiEdit } from "react-icons/ci";
 
 const EditModal = () => {
   return (
@@ -55,13 +50,6 @@ const EditModal = () => {
               // value={inputs.description}
               // onChange={(e) => setInputs({ ...inputs, description: e.target.value })}
             />
-
-            {/* <RadioGroup defaultValue="1">
-               <HStack gap="6">
-                 <Radio value="1">male</Radio>
-                 <Radio value="2">female</Radio>
-               </HStack>
-             </RadioGroup> */}
 
             <Button mt={4}>Submit</Button>
           </PopoverBody>
