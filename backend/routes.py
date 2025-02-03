@@ -9,34 +9,41 @@ def get_friends():
   friends = Friend.query.all() 
   result = [friend.to_json() for friend in friends]
   return jsonify(result)
-
-# Create a new friend
-@app.route('/api/friends', methods=['POST'])
+# Create a friend
+@app.route("/api/friends",methods=["POST"])
 def create_friend():
-    try:
-        data = request.json
+  try:
+    data = request.json
 
-        # Check if all required fields are present
-        required_fields = ["name", "role", "gender", "description"]
-        if not all(field in data for field in required_fields):
-            return jsonify({"error": "Missing required fields"}), 400
+    # Validations
+    required_fields = ["name","role","description","gender"]
+    for field in required_fields:
+      if field not in data or not data.get(field):
+        return jsonify({"error":f'Missing required field: {field}'}), 400
 
-        # Create a new Friend object
-        new_friend = Friend(
-            name=data['name'],
-            role=data['role'],
-            gender=data['gender'],
-            description=data['description']
-        )
+    name = data.get("name")
+    role = data.get("role")
+    description = data.get("description")
+    gender = data.get("gender")
 
-        # Add the new friend to the database
-        db.session.add(new_friend)
-        db.session.commit()
+    # Fetch avatar image based on gender
+    if gender == "male":
+      img_url = f"https://avatar.iran.liara.run/public/boy?username={name}"
+    elif gender == "female":
+      img_url = f"https://avatar.iran.liara.run/public/girl?username={name}"
+    else:
+      img_url = None
 
-        return jsonify(new_friend.to_json()), 201
+    new_friend = Friend(name=name, role=role, description=description, gender= gender, img_url=img_url)
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    db.session.add(new_friend) 
+    db.session.commit()
+
+    return jsonify(new_friend.to_json()), 201
+    
+  except Exception as e:
+    db.session.rollback()
+    return jsonify({"error":str(e)}), 500
 
 # Delete a friend
 @app.route('/api/friends/<int:id>', methods=['DELETE'])
