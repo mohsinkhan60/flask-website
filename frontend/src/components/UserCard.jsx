@@ -35,7 +35,7 @@ const UserCard = ({ user, setUsers }) => {
           </Flex>
 
           <Flex gap={2} cursor={PointerEvent}>
-            <EditModal user={user} />
+            <EditModal user={user} setUsers={setUsers} />
             <BiTrash onClick={handleDelete} />
           </Flex>
         </Flex>
