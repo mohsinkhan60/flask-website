@@ -5,8 +5,7 @@ import { useState } from "react";
 
 export const BASE_URL = "http://127.0.0.1:5000/api";
 const App = () => {
-  const [users, setUsers] = useState([])
-console.log(users)
+  const [users, setUsers] = useState([]);
   return (
     <Stack minH={"100vh"}>
       <Navbar setUsers={setUsers} />
